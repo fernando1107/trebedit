@@ -307,7 +307,7 @@
             </div>
             
             <p><strong>Preencha o formulário que iremos entrar em contato com você.</strong></p>
-            <form id="contact-form" method="POST" action="https://formspree.io/f/xblrdvgv">
+            <form id="contact-form" method="POST" action="https://formspree.io/f/xblrdvgv" onsubmit="return handleFormSubmit(event)">
                 <div class="form-container">
                     <div class="form-group">
                         <label for="nome">Nome:</label>
@@ -322,7 +322,7 @@
                         <input type="text" id="endereco" name="endereco" required>
                     </div>
                     <div class="form-group">
-                        <label for="data-hora">Data e Hora (somente em horario comercial):</label>
+                        <label for="data-hora">Data e Hora:</label>
                         <input type="datetime-local" id="data-hora" name="data-hora" required>
                         <p id="error-message" class="error-message"></p>
                     </div>
@@ -344,7 +344,6 @@
         document.addEventListener("DOMContentLoaded", function () {
             const dataHoraInput = document.getElementById("data-hora");
             const errorMessage = document.getElementById("error-message");
-            const form = document.getElementById("contact-form");
             const confirmarAgendamentoBtn = document.getElementById("confirmar-agendamento");
             const submitBtn = document.getElementById("submit");
 
@@ -359,13 +358,6 @@
                 if (validateDateTime()) {
                     submitBtn.style.display = "inline-block";
                     confirmarAgendamentoBtn.style.display = "none";
-                }
-            });
-
-            form.addEventListener("submit", function (event) {
-                if (!dataHoraInput.checkValidity()) {
-                    event.preventDefault();
-                    validateDateTime();
                 }
             });
 
@@ -392,6 +384,30 @@
                 }
             }
         });
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+
+            const nome = formData.get('nome');
+            const telefone = formData.get('telefone');
+            const endereco = formData.get('endereco');
+            const dataHora = formData.get('data-hora');
+
+            // Envia a mensagem via WhatsApp
+            const whatsappNumber = '5512982576106'; // Substitua pelo número do WhatsApp desejado
+            const whatsappMessage = Nome: ${nome}%0A +
+                                    Telefone: ${telefone}%0A +
+                                    Endereço: ${endereco}%0A +
+                                    Data e Hora: ${dataHora};
+            const whatsappUrl = https://wa.me/${whatsappNumber}?text=${whatsappMessage};
+            window.open(whatsappUrl, '_blank');
+
+            // Prosseguir com o envio do formulário
+            form.submit();
+        }
 
         function redirectToService(service) {
             const loader = document.getElementById('loader');
