@@ -18,7 +18,6 @@
             background-color: #000000;
             padding: 20px;
             text-align: center;
-            color: #FFFFFF;
         }
 
         .header h1 {
@@ -35,7 +34,6 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            position: relative;
         }
 
         .profile-picture {
@@ -55,10 +53,10 @@
             background: #FFFFFF;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            color: #000000;
         }
 
         .content h1 {
-            color: #000000;
             font-size: 2em;
         }
 
@@ -71,7 +69,6 @@
         .content .highlight {
             font-weight: bold;
             font-size: 2em;
-            color: #000000;
         }
 
         .form-container {
@@ -86,19 +83,26 @@
         .form-group label {
             display: block;
             margin-bottom: 5px;
-            color: #000000;
         }
 
         .form-group input {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
+            margin-top: 5px;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #4267b2;
+            outline: none;
         }
 
         .button-container {
             margin-top: 20px;
+            text-align: center;
         }
 
         .button {
@@ -131,8 +135,12 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .media-container {
@@ -165,7 +173,29 @@
                 font-size: 1em;
             }
         }
+
+        @keyframes bounce {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .bounce {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
     </style>
+
 </head>
 
 <body>
@@ -175,12 +205,13 @@
     <div class="parallax"></div>
     <div class="content">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWJ9lsI0evYnmfNH8D5kfmzkFEyk0YEGZstSp97JDJeKcOehz_50gntZ4&s=10" class="profile-picture" alt="Foto de perfil">
-        <h1>Sobre nosso serviço 👇</h1>
-        <p>Instalação de calhas<br>
-           Manutenção de calhas<br>
-           Instalação de Rufos<br>
-           Drenagem<br>
-           <span class="highlight">Exemplos em vídeos e Fotos.</span>
+        <h1>Sobre nosso serviço <span class="bounce">👇</span></h1>
+        <p>
+            Instalação de calhas<br>
+            Manutenção de calhas<br>
+            Instalação de Rufos<br>
+            Drenagem<br>
+            <span class="highlight">Exemplos em vídeos e Fotos.</span>
         </p>
         <div class="media-container">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
@@ -191,6 +222,7 @@
             <iframe src="https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ" frameborder="0" allowfullscreen></iframe>
             <iframe src="https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ" frameborder="0" allowfullscreen></iframe>
         </div>
+        <p><strong>Preencha o formulário que iremos entrar em contato com você.</strong></p>
         <form id="contact-form" method="POST" action="https://formspree.io/f/xblrdvgv">
             <div class="form-container">
                 <div class="form-group">
@@ -227,5 +259,4 @@
         }
     </script>
 </body>
-
 </html>
