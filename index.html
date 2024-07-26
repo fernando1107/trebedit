@@ -6,25 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Paralaxe com Tema Facebook</title>
     <style>
+        :root {
+            --primary-color: 4267b2;
+            --secondary-color: 365899;
+            --background-color: 000000;
+            --text-color: ffffff;
+            --highlight-color: 25D366;
+            --highlight-hover: 1EBE52;
+        }
+
         body {
             margin: 0;
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: 000000;
-            color: FFFFFF;
+            background-color: var(--background-color);
+            color: var(--text-color);
             overflow-x: hidden;
         }
 
         .header {
-            background-color: 000000;
+            background-color: var(--background-color);
             padding: 20px;
             text-align: center;
         }
 
         .header h1 {
             font-size: 3em;
-            color: FFFFFF;
+            color: var(--text-color);
             font-weight: bold;
-            text-shadow: 2px 2px 000, 4px 4px 555, 6px 6px aaa;
+            text-shadow: 2px 2px var(--background-color), 4px 4px var(--secondary-color), 6px 6px aaa;
         }
 
         .parallax {
@@ -40,7 +49,7 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            border: 5px solid FFFFFF;
+            border: 5px solid var(--text-color);
             display: block;
             margin: -75px auto 0 auto;
         }
@@ -50,10 +59,10 @@
             text-align: center;
             margin: 100px auto;
             max-width: 800px;
-            background: FFFFFF;
+            background: var(--text-color);
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            color: 000000;
+            color: var(--background-color);
         }
 
         .content h1 {
@@ -74,6 +83,8 @@
         .form-container {
             margin-top: 20px;
             text-align: left;
+            display: flex;
+            flex-direction: column;
         }
 
         .form-group {
@@ -96,7 +107,7 @@
         }
 
         .form-group input:focus {
-            border-color: 4267b2;
+            border-color: var(--primary-color);
             outline: none;
         }
 
@@ -105,7 +116,8 @@
             text-align: center;
         }
 
-        .button, .whatsapp-button {
+        .button,
+        .whatsapp-button {
             border: none;
             padding: 15px 30px;
             text-align: center;
@@ -114,25 +126,27 @@
             font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
 
         .button {
-            background-color: 4267b2;
-            color: FFFFFF;
+            background-color: var(--primary-color);
+            color: var(--text-color);
         }
 
         .button:hover {
-            background-color: 365899;
+            background-color: var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .whatsapp-button {
-            background-color: 25D366;
-            color: FFFFFF;
+            background-color: var(--highlight-color);
+            color: var(--text-color);
         }
 
         .whatsapp-button:hover {
-            background-color: 1EBE52;
+            background-color: var(--highlight-hover);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .whatsapp-icon {
@@ -142,19 +156,24 @@
         }
 
         .loader {
-            border: 8px solid FFFFFF;
-            border-top: 8px solid 4267b2;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid var(--primary-color);
             border-radius: 50%;
             width: 60px;
             height: 60px;
-            animation: spin 1s linear infinite;
+            animation: spin 1.5s linear infinite;
             display: none;
             margin: 20px auto;
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .media-container {
@@ -210,9 +229,21 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-30px); }
-            60% { transform: translateY(-15px); }
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-30px);
+            }
+
+            60% {
+                transform: translateY(-15px);
+            }
         }
 
         .bounce {
@@ -220,60 +251,55 @@
             animation: bounce 2s infinite;
         }
     </style>
-
 </head>
 
 <body>
-    <div class="header">
+    <header class="header">
         <h1>GS Calheiro</h1>
-    </div>
-    <div class="parallax"></div>
-    <div class="content">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWJ9lsI0evYnmfNH8D5kfmzkFEyk0YEGZstSp97JDJeKcOehz_50gntZ4&s=10" class="profile-picture" alt="Foto de perfil">
-        <h1>Sobre nosso serviço <span class="bounce">👇</span></h1>
-        <p>
-            Instalação de calhas<br>
-            Manutenção de calhas<br>
-            Instalação de Rufos<br>
-            Drenagem<br>
-            <span class="highlight">Exemplos em vídeos e Fotos.</span>
-        </p>
-        <div class="media-container">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
-            <iframe src="https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ" frameborder="0" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p><strong>Preencha o formulário que iremos entrar em contato com você.</strong></p>
-        <form id="contact-form" method="POST" action="https://formspree.io/f/xblrdvgv">
-            <div class="form-container">
-                <div class="form-group">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" required>
-                </div>
-                <div class="form-group">
-                    <label for="telefone">Telefone:</label>
-                    <input type="tel" id="telefone" name="telefone" required>
-                </div>
-                <div class="form-group">
-                    <label for="endereco">Endereço:</label>
-                    <input type="text" id="endereco" name="endereco" required>
-                </div>
+    </header>
+    <main>
+        <div class="parallax"></div>
+        <section class="content">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWJ9lsI0evYnmfNH8D5kfmzkFEyk0YEGZstSp97JDJeKcOehz_50gntZ4&s=10" class="profile-picture" alt="Foto de perfil">
+            <h1>Sobre nosso serviço <span class="bounce">👇</span></h1>
+            <p>Instalação de calhas<br>Manutenção de calhas<br>Instalação de Rufos<br>Drenagem<br><span class="highlight">Exemplos em vídeos e Fotos.</span></p>
+            <div class="media-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
+                <iframe src="https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ" frameborder="0" allowfullscreen></iframe>
             </div>
+            <p><strong>Preencha o formulário que iremos entrar em contato com você.</strong></p>
+            <form id="contact-form" method="POST" action="https://formspree.io/f/xblrdvgv">
+                <div class="form-container">
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endereco">Endereço:</label>
+                        <input type="text" id="endereco" name="endereco" required>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button class="button" type="submit">Faz um orçamento sem compromisso</button>
+                </div>
+            </form>
             <div class="button-container">
-                <button class="button" type="submit">Faz um orçamento sem compromisso</button>
+                <button class="whatsapp-button" onclick="redirectToService('whatsapp')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-icon" alt="WhatsApp">Contato WhatsApp
+                </button>
             </div>
-        </form>
-        <div class="button-container">
-            <button class="whatsapp-button" onclick="redirectToService('whatsapp')">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-icon" alt="WhatsApp">Contato WhatsApp
-            </button>
-        </div>
-        <div class="loader" id="loader">•••</div>
-    </div>
+            <div class="loader" id="loader">•••</div>
+        </section>
+    </main>
     <script>
         function redirectToService(service) {
             const loader = document.getElementById('loader');
