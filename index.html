@@ -38,7 +38,12 @@
             font-weight: bold;
             letter-spacing: 0.1em;
             font-family: Arial, Helvetica, sans-serif;
-            text-shadow: 1px 1px 0 000, 2px 2px 0 000, 3px 3px 0 000, 4px 4px 0 000, 5px 5px 0 000, 6px 6px 0 000;
+            text-shadow: 1px 1px 0 000,
+                          2px 2px 0 000,
+                          3px 3px 0 000,
+                          4px 4px 0 000,
+                          5px 5px 0 000,
+                          6px 6px 0 000;
         }
 
         .parallax {
@@ -323,7 +328,8 @@
                     </div>
                 </div>
                 <div class="button-container">
-                    <button class="button" type="submit">Faz um orçamento sem compromisso</button>
+                    <button type="button" class="button" id="confirmar-agendamento">Agendar</button>
+                    <button class="button" type="submit" id="submit" style="display:none;">Enviar</button>
                 </div>
             </form>
             <div class="button-container">
@@ -339,34 +345,52 @@
             const dataHoraInput = document.getElementById("data-hora");
             const errorMessage = document.getElementById("error-message");
             const form = document.getElementById("contact-form");
+            const confirmarAgendamentoBtn = document.getElementById("confirmar-agendamento");
+            const submitBtn = document.getElementById("submit");
 
             const hoje = new Date().toISOString().slice(0, 16);
             dataHoraInput.min = hoje;
 
             dataHoraInput.addEventListener("input", function () {
-                const [date, time] = this.value.split("T");
-                const [hour, minutes] = time.split(":");
+                validateDateTime();
+            });
 
-                if (new Date(this.value) < new Date()) {
-                    errorMessage.textContent = "Data anterior não permitida.";
-                    errorMessage.style.display = "block";
-                    this.setCustomValidity("Data anterior não permitida.");
-                } else if (hour < 8 || hour > 18) {
-                    errorMessage.textContent = "Horário fora do horário comercial (08:00 - 18:00).";
-                    errorMessage.style.display = "block";
-                    this.setCustomValidity("Horário fora do horário comercial.");
-                } else {
-                    errorMessage.style.display = "none";
-                    this.setCustomValidity("");
+            confirmarAgendamentoBtn.addEventListener("click", function () {
+                if (validateDateTime()) {
+                    submitBtn.style.display = "inline-block";
+                    confirmarAgendamentoBtn.style.display = "none";
                 }
             });
 
             form.addEventListener("submit", function (event) {
                 if (!dataHoraInput.checkValidity()) {
                     event.preventDefault();
-                    errorMessage.style.display = "block";
+                    validateDateTime();
                 }
             });
+
+            function validateDateTime() {
+                const [date, time] = dataHoraInput.value.split("T");
+                const [hour, minutes] = time.split(":");
+                const selectedDateTime = new Date(dataHoraInput.value);
+                const now = new Date();
+
+                if (selectedDateTime < now) {
+                    errorMessage.textContent = "Data anterior não permitida.";
+                    errorMessage.style.display = "block";
+                    dataHoraInput.setCustomValidity("Data anterior não permitida.");
+                    return false;
+                } else if (hour < 8 || hour > 18) {
+                    errorMessage.textContent = "Horário fora do horário comercial (08:00 - 18:00).";
+                    errorMessage.style.display = "block";
+                    dataHoraInput.setCustomValidity("Horário fora do horário comercial.");
+                    return false;
+                } else {
+                    errorMessage.style.display = "none";
+                    dataHoraInput.setCustomValidity("");
+                    return true;
+                }
+            }
         });
 
         function redirectToService(service) {
