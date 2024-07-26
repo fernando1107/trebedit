@@ -6,12 +6,12 @@
     <title>Paralaxe com Tema Facebook</title>
     <style>
         :root {
-            --primary-color: #4267b2;
-            --secondary-color: #365899;
-            --background-color: #000000;
-            --text-color: #ffffff;
-            --highlight-color: #25D366;
-            --highlight-hover: #1EBE52;
+            --primary-color: 4267b2;
+            --secondary-color: 365899;
+            --background-color: 000000;
+            --text-color: ffffff;
+            --highlight-color: 25D366;
+            --highlight-hover: 1EBE52;
         }
 
         body {
@@ -37,7 +37,7 @@
             font-weight: bold;
             letter-spacing: 0.1em;
             font-family: Arial, Helvetica, sans-serif;
-            text-shadow: 1px 1px 0 000000, 2px 2px 0 000000, 3px 3px 0 000000, 4px 4px 0 000000, 5px 5px 0 000000, 6px 6px 0 000000;
+            text-shadow: 1px 1px 000000, 2px 2px 000000, 3px 3px 000000, 4px 4px 000000, 5px 5px 000000, 6px 6px 000000;
         }
 
         .parallax {
@@ -74,7 +74,7 @@
         }
 
         .content p {
-            color: #666666;
+            color: 666666;
             font-size: 1.1em;
             line-height: 1.8;
         }
@@ -115,13 +115,6 @@
             outline: none;
         }
 
-        .error-message {
-            color: red;
-            display: none;
-            margin-top: -10px;
-            margin-bottom: 10px;
-        }
-
         .button-container {
             margin-top: 20px;
             text-align: center;
@@ -144,26 +137,6 @@
         .button:hover {
             background-color: var(--secondary-color);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .loader {
-            border: 8px solid rgba(255, 255, 255, 0.3);
-            border-top: 8px solid var(--primary-color);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 1.5s linear infinite;
-            display: none;
-            margin: 20px auto;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
         }
 
         .media-container {
@@ -278,100 +251,15 @@
                         <input type="tel" id="telefone" name="telefone" required pattern="\d{2}\d{9}" title="Por favor, insira um número de telefone celular válido com DDD e 9 dígitos. Exemplo: 11999999999">
                     </div>
                     <div class="form-group">
-                        <label for="cep">CEP:</label>
-                        <input type="text" id="cep" name="cep" required pattern="\d{5}-\d{3}" title="Por favor, insira um CEP válido no formato XXXXX-XXX.">
-                    </div>
-                    <div class="form-group">
-                        <label for="endereco">Endereço:</label>
-                        <input type="text" id="endereco" name="endereco" required readonly>
-                    </div>
-                    <div class="form-group">
                         <label for="data-hora">Data e Hora:</label>
                         <input type="datetime-local" id="data-hora" name="data-hora" required>
-                        <p id="error-message" class="error-message"></p>
                     </div>
                 </div>
                 <div class="button-container">
-                    <button type="button" class="button" id="confirmar-agendamento">Agendar</button>
-                    <button class="button" type="submit" id="submit" style="display:none;">Enviar</button>
+                    <button class="button" type="submit">Enviar</button>
                 </div>
             </form>
-            <div class="loader" id="loader">•••</div>
         </section>
     </main>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const dataHoraInput = document.getElementById("data-hora");
-            const errorMessage = document.getElementById("error-message");
-            const confirmarAgendamentoBtn = document.getElementById("confirmar-agendamento");
-            const submitBtn = document.getElementById("submit");
-            const telefoneInput = document.getElementById("telefone");
-            const cepInput = document.getElementById("cep");
-            const enderecoInput = document.getElementById("endereco");
-
-            const hoje = new Date().toISOString().slice(0, 16);
-            dataHoraInput.min = hoje;
-
-            cepInput.addEventListener("input", function() {
-                if (cepInput.value.length === 9) {
-                    const cleanedCep = cepInput.value.replace('-', '');
-                    fetch(https://viacep.com.br/ws/${cleanedCep}/json/)
-                        .then(response => response.json())
-                        .then(data => {
-                            if (!data.erro) {
-                                enderecoInput.value = ${data.logradouro}, ${data.bairro}, ${data.localidade} - ${data.uf};
-                                errorMessage.textContent = "";
-                            } else {
-                                enderecoInput.value = "";
-                                errorMessage.textContent = "CEP não encontrado.";
-                                errorMessage.style.display = 'block';
-                            }
-                        })
-                        .catch(err => {
-                            console.error(err);
-                            errorMessage.textContent = "Erro ao buscar o CEP.";
-                            errorMessage.style.display = 'block';
-                        });
-                }
-            });
-
-            confirmarAgendamentoBtn.addEventListener("click", function() {
-                const isValidPhone = validateTelefone();
-                const isValidDateTime = validateDateTime();
-
-                if (isValidPhone && isValidDateTime) {
-                    submitBtn.style.display = "inline-block";
-                    confirmarAgendamentoBtn.style.display = "none";
-                }
-            });
-
-            function validateTelefone() {
-                const pattern = /^\d{2}\d{9}$/;
-                if (!pattern.test(telefoneInput.value)) {
-                    telefoneInput.setCustomValidity("Por favor, insira um número de telefone celular válido.");
-                    return false;
-                } else {
-                    telefoneInput.setCustomValidity("");
-                    return true;
-                }
-            }
-
-            function validateDateTime() {
-                const selectedDateTime = new Date(dataHoraInput.value);
-                const now = new Date();
-
-                if (selectedDateTime < now) {
-                    errorMessage.textContent = "Data anterior não permitida.";
-                    errorMessage.style.display = "block";
-                    dataHoraInput.setCustomValidity("Data inválida.");
-                    return false;
-                } else {
-                    errorMessage.style.display = "none";
-                    dataHoraInput.setCustomValidity("");
-                    return true;
-                }
-            }
-        });
-    </script>
 </body>
 </html>
