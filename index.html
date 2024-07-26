@@ -37,7 +37,7 @@
             font-weight: bold;
             letter-spacing: 0.1em;
             font-family: Arial, Helvetica, sans-serif;
-            text-shadow: 1px 1px 000, 2px 2px 000, 3px 3px 000, 4px 4px 000, 5px 5px 000, 6px 6px 000;
+            text-shadow: 1px 1px 0 000000, 2px 2px 0 000000, 3px 3px 0 000000, 4px 4px 0 000000, 5px 5px 0 000000, 6px 6px 0 000000;
         }
 
         .parallax {
@@ -79,7 +79,7 @@
             line-height: 1.8;
         }
 
-        .content .highlight {
+        .highlight {
             font-weight: bold;
             font-size: 2em;
         }
@@ -127,8 +127,7 @@
             text-align: center;
         }
 
-        .button,
-        .whatsapp-button {
+        .button {
             border: none;
             padding: 15px 30px;
             text-align: center;
@@ -137,33 +136,14 @@
             font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-
-        .button {
             background-color: var(--primary-color);
             color: var(--text-color);
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
 
         .button:hover {
             background-color: var(--secondary-color);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .whatsapp-button {
-            background-color: var(--highlight-color);
-            color: var(--text-color);
-        }
-
-        .whatsapp-button:hover {
-            background-color: var(--highlight-hover);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .whatsapp-icon {
-            height: 20px;
-            margin-right: 10px;
-            vertical-align: middle;
         }
 
         .loader {
@@ -181,7 +161,6 @@
             0% {
                 transform: rotate(0deg);
             }
-
             100% {
                 transform: rotate(360deg);
             }
@@ -213,29 +192,19 @@
                 height: 100px;
                 margin: -50px auto 0 auto;
             }
-
             .content {
                 margin-top: 50px;
                 padding: 10px;
             }
-
             .content h1 {
                 font-size: 1.5em;
             }
-
             .content p {
                 font-size: 1em;
             }
-
-            .button,
-            .whatsapp-button {
+            .button {
                 padding: 10px 20px;
                 font-size: 14px;
-            }
-
-            .whatsapp-icon {
-                height: 16px;
-                margin-right: 5px;
             }
         }
 
@@ -247,11 +216,9 @@
             100% {
                 transform: translateY(0);
             }
-
             40% {
                 transform: translateY(-30px);
             }
-
             60% {
                 transform: translateY(-15px);
             }
@@ -279,9 +246,9 @@
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWJ9lsI0evYnmfNH8D5kfmzkFEyk0YEGZstSp97JDJeKcOehz_50gntZ4&s=10" class="profile-picture" alt="Foto de perfil">
             <h1>Sobre nosso serviço <span class="bounce">👇</span></h1>
             <p>Instalação de calhas<br>Manutenção de calhas<br>Instalação de Rufos<br>Drenagem<br><span class="highlight">Exemplos em vídeos e Fotos.</span></p>
-            
+
             <div class="divider"></div>
-            
+
             <h2>Fotos dos nossos serviços</h2>
             <div class="media-container">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s" alt="Foto de serviço">
@@ -290,15 +257,15 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s" alt="Foto de serviço">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s" alt="Foto de serviço">
             </div>
-            
+
             <div class="divider"></div>
-            
+
             <h2>Vídeos dos nossos serviços</h2>
             <div class="media-container">
                 <iframe src="https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ" frameborder="0" allowfullscreen></iframe>
                 <iframe src="https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ" frameborder="0" allowfullscreen></iframe>
             </div>
-            
+
             <p><strong>Preencha o formulário que iremos entrar em contato com você.</strong></p>
             <form id="contact-form" method="POST" action="https://formspree.io/f/xblrdvgv">
                 <div class="form-container">
@@ -329,11 +296,6 @@
                     <button class="button" type="submit" id="submit" style="display:none;">Enviar</button>
                 </div>
             </form>
-            <div class="button-container">
-                <button class="whatsapp-button" onclick="redirectToWhatsApp()">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-icon" alt="WhatsApp">Contato WhatsApp
-                </button>
-            </div>
             <div class="loader" id="loader">•••</div>
         </section>
     </main>
@@ -409,12 +371,8 @@
                     return true;
                 }
             }
-
-            window.redirectToWhatsApp = function() {
-                const phone = telefoneInput.value.replace(/\D/g, '');
-                window.open(https://wa.me/${phone}, "_blank");
-            };
         });
     </script>
 </body>
 </html>
+
