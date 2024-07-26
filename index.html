@@ -37,7 +37,7 @@
             font-weight: bold;
             letter-spacing: 0.1em;
             font-family: Arial, Helvetica, sans-serif;
-            text-shadow: 1px 1px 000000, 2px 2px 000000, 3px 3px 000000, 4px 4px 000000, 5px 5px 000000, 6px 6px 000000;
+            text-shadow: 1px 1px 0 000000, 2px 2px 0 000000, 3px 3px 0 000000, 4px 4px 0 000000, 5px 5px 0 000000, 6px 6px 0 000000;
         }
 
         .parallax {
@@ -139,73 +139,31 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .media-container {
-            display: grid;
-            grid-gap: 10px;
-            margin-top: 20px;
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border: none;
+            background-color: var(--highlight-color);
+            color: var(--text-color);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
 
-        .media-container img,
-        .media-container iframe {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
+        .whatsapp-button:hover {
+            background-color: var(--highlight-hover);
         }
 
-        @media (min-width: 768px) {
-            .media-container {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .profile-picture {
-                width: 100px;
-                height: 100px;
-                margin: -50px auto 0 auto;
-            }
-            .content {
-                margin-top: 50px;
-                padding: 10px;
-            }
-            .content h1 {
-                font-size: 1.5em;
-            }
-            .content p {
-                font-size: 1em;
-            }
-            .button {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
-        }
-
-        @keyframes bounce {
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-30px);
-            }
-            60% {
-                transform: translateY(-15px);
-            }
-        }
-
-        .bounce {
-            display: inline-block;
-            animation: bounce 2s infinite;
-        }
-
-        .divider {
-            height: 4px;
-            background-color: var(--primary-color);
-            margin: 40px 0;
+        .whatsapp-icon {
+            width: 30px;
+            height: 30px;
         }
     </style>
 </head>
@@ -261,5 +219,17 @@
             </form>
         </section>
     </main>
+
+    <button class="whatsapp-button" onclick="redirectToWhatsApp()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-icon" alt="WhatsApp">
+    </button>
+
+    <script>
+        function redirectToWhatsApp() {
+            const phoneNumber = '5512982576106'; // substitua pelo número de telefone desejado
+            const message = 'Olá, gostaria de mais informações sobre os serviços de calhas.';
+            window.open(https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}, '_blank');
+        }
+    </script>
 </body>
 </html>
