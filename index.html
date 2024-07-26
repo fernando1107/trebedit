@@ -7,12 +7,12 @@
     <title>Paralaxe com Tema Facebook</title>
     <style>
         :root {
-            --primary-color: #4267b2;
-            --secondary-color: #365899;
-            --background-color: #000000;
-            --text-color: #ffffff;
-            --highlight-color: #25D366;
-            --highlight-hover: #1EBE52;
+            --primary-color: 4267b2;
+            --secondary-color: 365899;
+            --background-color: 000000;
+            --text-color: ffffff;
+            --highlight-color: 25D366;
+            --highlight-hover: 1EBE52;
         }
 
         body {
@@ -34,6 +34,25 @@
             color: var(--text-color);
             font-weight: bold;
             text-shadow: 2px 2px var(--background-color), 4px 4px var(--secondary-color), 6px 6px aaa;
+            animation: textGlow 1.5s ease-in-out infinite;
+            transform: perspective(500px) rotateX(10deg) rotateY(10deg);
+        }
+
+        @keyframes textGlow {
+            0% {
+                text-shadow: 2px 2px var(--background-color), 4px 4px var(--secondary-color), 6px 6px aaa;
+                transform: perspective(500px) rotateX(10deg) rotateY(10deg);
+            }
+            
+            50% {
+                text-shadow: 2px 2px var(--background-color), 4px 4px var(--secondary-color), 6px 6px aaa, 0 0 20px fff, 0 0 30px fff, 0 0 40px fff, 0 0 50px fff, 0 0 60px fff, 0 0 70px fff;
+                transform: perspective(500px) rotateX(0deg) rotateY(0deg);
+            }
+            
+            100% {
+                text-shadow: 2px 2px var(--background-color), 4px 4px var(--secondary-color), 6px 6px aaa;
+                transform: perspective(500px) rotateX(10deg) rotateY(10deg);
+            }
         }
 
         .parallax {
@@ -70,7 +89,7 @@
         }
 
         .content p {
-            color: #666666;
+            color: 666666;
             font-size: 1.1em;
             line-height: 1.8;
         }
