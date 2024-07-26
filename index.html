@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -30,31 +29,22 @@
         }
 
         .header h1 {
-            font-size: 3em;
-            color: var(--text-color);
-            font-weight: bold;
-            text-shadow: 0 1px 0 ccc,
-                         0 2px 0 c9c9c9, 
-                         0 3px 0 bbb, 
-                         0 4px 0 b9b9b9, 
-                         0 5px 0 aaa, 
-                         0 6px 1px rgba(0,0,0,.1), 
-                         0 0 5px rgba(0,0,0,.3), 
-                         0 1px 3px rgba(0,0,0,.3), 
-                         0 3px 5px rgba(0,0,0,.2), 
-                         0 5px 10px rgba(0,0,0,.25), 
-                         0 10px 10px rgba(0,0,0,.2),
-                         0 20px 20px rgba(0,0,0,.15);
-            animation: textBounce 1.5s ease-in-out infinite;
+            font-size: 4em;
+            color: #ffffff;
+            position: relative;
+            text-transform: uppercase;
+            text-align: center;
         }
 
-        @keyframes textBounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+        .header h1:before {
+            content: 'GS CALHAS';
+            position: absolute;
+            top: 10px; /_ Ajuste para a sombra 3D _/
+            left: 10px; /_ Ajuste para a sombra 3D _/
+            color: #ff0000; /_ Base vermelha _/
+            z-index: -1;
+            text-shadow: 5px 5px 0 #b30000, /_ Ajustar tamanho e cor da sombra conforme necessário _/
+                         10px 10px 0 #660000; /_ Sombra adicional para profundidade _/
         }
 
         .parallax {
@@ -91,7 +81,7 @@
         }
 
         .content p {
-            color: 666666;
+            color: #666666;
             font-size: 1.1em;
             line-height: 1.8;
         }
@@ -121,7 +111,7 @@
             width: 100%;
             padding: 10px;
             margin-top: 5px;
-            border: 1px solid ccc;
+            border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
             transition: border-color 0.3s;
@@ -332,6 +322,4 @@
         }
     </script>
 </body>
-
 </html>
-
