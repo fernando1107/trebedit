@@ -162,6 +162,7 @@
             0% {
                 transform: rotate(0deg);
             }
+
             100% {
                 transform: rotate(360deg);
             }
@@ -193,8 +194,23 @@
                 padding: 10px;
             }
 
+            .content h1 {
+                font-size: 1.5em;
+            }
+
             .content p {
                 font-size: 1em;
+            }
+
+            .button,
+            .whatsapp-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .whatsapp-icon {
+                height: 16px;
+                margin-right: 5px;
             }
         }
 
@@ -206,9 +222,11 @@
             100% {
                 transform: translateY(0);
             }
+
             40% {
                 transform: translateY(-30px);
             }
+
             60% {
                 transform: translateY(-15px);
             }
@@ -277,7 +295,7 @@
         function redirectToService(service) {
             const loader = document.getElementById('loader');
             loader.style.display = 'block';
-            setTimeout(function() {
+            setTimeout(function () {
                 if (service === 'whatsapp') {
                     window.location.href = 'https://wa.me/5512982576106';
                 }
@@ -285,4 +303,5 @@
         }
     </script>
 </body>
+
 </html>
