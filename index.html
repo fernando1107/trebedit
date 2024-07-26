@@ -6,274 +6,275 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Paralaxe com Tema Facebook</title>
     <style>
-        :root {
-            --primary-color: #4267b2;
-            --secondary-color: #365899;
-            --background-color: #000000;
-            --text-color: #ffffff;
-            --highlight-color: #25D366;
-            --highlight-hover: #1EBE52;
+         :root {
+            --primary-color: 4267b2;
+            --secondary-color: 365899;
+            --background-color: 000000;
+            --text-color: ffffff;
+            --highlight-color: 25D366;
+            --highlight-hover: 1EBE52;
         }
 
-        body {
-            margin: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            overflow-x: hidden;
+<pre><code>    body {
+        margin: 0;
+        font-family: &39;Helvetica Neue&39;, Arial, sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        overflow-x: hidden;
+    }
+
+    .header {
+        background-color: var(--background-color);
+        padding: 20px;
+        text-align: center;
+    }
+
+    .header h1 {
+        font-size: 4em;
+        color: var(--text-color);
+        position: relative;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        font-family: Arial, Helvetica, sans-serif;
+        text-shadow: 1px 1px 0 000,
+                      2px 2px 0 000,
+                      3px 3px 0 000,
+                      4px 4px 0 000,
+                      5px 5px 0 000,
+                      6px 6px 0 000;
+    }
+
+    .parallax {
+        background-image: url(&39;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAtNydeTv_8rGYjJMrcV0oLPYXr3C3nof8FEhOtrQUy62z9fe8cfkiZHY&amp;s=10&39;);
+        height: 300px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 5px solid var(--text-color);
+        display: block;
+        margin: -75px auto 0 auto;
+    }
+
+    .content {
+        padding: 20px;
+        text-align: center;
+        margin: 100px auto;
+        max-width: 800px;
+        background: var(--text-color);
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        color: var(--background-color);
+    }
+
+    .content h1 {
+        font-size: 2em;
+    }
+
+    .content p {
+        color: 666666;
+        font-size: 1.1em;
+        line-height: 1.8;
+    }
+
+    .content .highlight {
+        font-weight: bold;
+        font-size: 2em;
+    }
+
+    .form-container {
+        margin-top: 20px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+    }
+
+    .form-group input:focus {
+        border-color: var(--primary-color);
+        outline: none;
+    }
+
+    .error-message {
+        color: red;
+        display: none;
+        margin-top: -10px;
+        margin-bottom: 10px;
+    }
+
+    .button-container {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .button,
+    .whatsapp-button {
+        border: none;
+        padding: 15px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .button {
+        background-color: var(--primary-color);
+        color: var(--text-color);
+    }
+
+    .button:hover {
+        background-color: var(--secondary-color);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .whatsapp-button {
+        background-color: var(--highlight-color);
+        color: var(--text-color);
+    }
+
+    .whatsapp-button:hover {
+        background-color: var(--highlight-hover);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .whatsapp-icon {
+        height: 20px;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+
+    .loader {
+        border: 8px solid rgba(255, 255, 255, 0.3);
+        border-top: 8px solid var(--primary-color);
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 1.5s linear infinite;
+        display: none;
+        margin: 20px auto;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
         }
 
-        .header {
-            background-color: var(--background-color);
-            padding: 20px;
-            text-align: center;
+        100% {
+            transform: rotate(360deg);
         }
+    }
 
-        .header h1 {
-            font-size: 4em;
-            color: var(--text-color);
-            position: relative;
-            text-transform: uppercase;
-            text-align: center;
-            font-weight: bold;
-            letter-spacing: 0.1em;
-            font-family: Arial, Helvetica, sans-serif;
-            text-shadow: 1px 1px 0 000,
-                          2px 2px 0 000,
-                          3px 3px 0 000,
-                          4px 4px 0 000,
-                          5px 5px 0 000,
-                          6px 6px 0 000;
+    .media-container {
+        display: grid;
+        grid-gap: 10px;
+        margin-top: 20px;
+    }
+
+    .media-container img,
+    .media-container iframe {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    @media (min-width: 768px) {
+        .media-container {
+            grid-template-columns: 1fr 1fr;
         }
+    }
 
-        .parallax {
-            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAtNydeTv_8rGYjJMrcV0oLPYXr3C3nof8FEhOtrQUy62z9fe8cfkiZHY&s=10');
-            height: 0px;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
+    @media (max-width: 767px) {
         .profile-picture {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid var(--text-color);
-            display: block;
-            margin: -75px auto 0 auto;
+            width: 100px;
+            height: 100px;
+            margin: -50px auto 0 auto;
         }
 
         .content {
-            padding: 20px;
-            text-align: center;
-            margin: 100px auto;
-            max-width: 800px;
-            background: var(--text-color);
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            color: var(--background-color);
+            margin-top: 50px;
+            padding: 10px;
         }
 
         .content h1 {
-            font-size: 2em;
+            font-size: 1.5em;
         }
 
         .content p {
-            color: #666666;
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-
-        .content .highlight {
-            font-weight: bold;
-            font-size: 2em;
-        }
-
-        .form-container {
-            margin-top: 20px;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus {
-            border-color: var(--primary-color);
-            outline: none;
-        }
-
-        .error-message {
-            color: red;
-            display: none;
-            margin-top: -10px;
-            margin-bottom: 10px;
-        }
-
-        .button-container {
-            margin-top: 20px;
-            text-align: center;
+            font-size: 1em;
         }
 
         .button,
         .whatsapp-button {
-            border: none;
-            padding: 15px 30px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-
-        .button {
-            background-color: var(--primary-color);
-            color: var(--text-color);
-        }
-
-        .button:hover {
-            background-color: var(--secondary-color);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .whatsapp-button {
-            background-color: var(--highlight-color);
-            color: var(--text-color);
-        }
-
-        .whatsapp-button:hover {
-            background-color: var(--highlight-hover);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
+            font-size: 14px;
         }
 
         .whatsapp-icon {
-            height: 20px;
-            margin-right: 10px;
-            vertical-align: middle;
+            height: 16px;
+            margin-right: 5px;
+        }
+    }
+
+    @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            transform: translateY(0);
         }
 
-        .loader {
-            border: 8px solid rgba(255, 255, 255, 0.3);
-            border-top: 8px solid var(--primary-color);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 1.5s linear infinite;
-            display: none;
-            margin: 20px auto;
+        40% {
+            transform: translateY(-30px);
         }
 
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
+        60% {
+            transform: translateY(-15px);
         }
+    }
 
-        .media-container {
-            display: grid;
-            grid-gap: 10px;
-            margin-top: 20px;
-        }
+    .bounce {
+        display: inline-block;
+        animation: bounce 2s infinite;
+    }
 
-        .media-container img,
-        .media-container iframe {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        @media (min-width: 768px) {
-            .media-container {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .profile-picture {
-                width: 100px;
-                height: 100px;
-                margin: -50px auto 0 auto;
-            }
-
-            .content {
-                margin-top: 50px;
-                padding: 10px;
-            }
-
-            .content h1 {
-                font-size: 1.5em;
-            }
-
-            .content p {
-                font-size: 1em;
-            }
-
-            .button,
-            .whatsapp-button {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
-
-            .whatsapp-icon {
-                height: 16px;
-                margin-right: 5px;
-            }
-        }
-
-        @keyframes bounce {
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-
-            40% {
-                transform: translateY(-30px);
-            }
-
-            60% {
-                transform: translateY(-15px);
-            }
-        }
-
-        .bounce {
-            display: inline-block;
-            animation: bounce 2s infinite;
-        }
-
-        .divider {
-            height: 4px;
-            background-color: var(--primary-color);
-            margin: 40px 0;
-        }
-    </style>
+    .divider {
+        height: 4px;
+        background-color: var(--primary-color);
+        margin: 40px 0;
+    }
+&lt;/style&gt;
+</code></pre>
 </head>
 
 <body>
@@ -287,114 +288,127 @@
             <h1>Sobre nosso serviço <span class="bounce">👇</span></h1>
             <p>Instalação de calhas<br>Manutenção de calhas<br>Instalação de Rufos<br>Drenagem<br><span class="highlight">Exemplos em vídeos e Fotos.</span></p>
             
-            <div class="divider"></div>
-            
-            <h2>Fotos dos nossos serviços</h2>
-            <div class="media-container">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s" alt="Foto de serviço">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s" alt="Foto de serviço">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s" alt="Foto de serviço">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s" alt="Foto de serviço">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s" alt="Foto de serviço">
-            </div>
-            
-            <div class="divider"></div>
-            
-            <h2>Vídeos dos nossos serviços</h2>
-            <div class="media-container">
-                <iframe src="https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ" frameborder="0" allowfullscreen></iframe>
-                <iframe src="https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ" frameborder="0" allowfullscreen></iframe>
-            </div>
-            
-            <p><strong>Preencha o formulário que iremos entrar em contato com você.</strong></p>
-            <form id="contact-form" method="POST" action="https://formspree.io/f/xblrdvgv">
-                <div class="form-container">
-                    <div class="form-group">
-                        <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="telefone">Telefone:</label>
-                        <input type="tel" id="telefone" name="telefone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="endereco">Endereço:</label>
-                        <input type="text" id="endereco" name="endereco" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="data-hora">Data e Hora:</label>
-                        <input type="datetime-local" id="data-hora" name="data-hora" required>
-                        <p id="error-message" class="error-message"></p>
-                    </div>
-                </div>
-                <div class="button-container">
-                    <button type="button" class="button" id="confirmar-agendamento">Agendar</button>
-                    <button class="button" type="submit" id="submit" style="display:none;">Enviar</button>
-                </div>
-            </form>
-            <div class="button-container">
-                <button class="whatsapp-button" onclick="redirectToService('whatsapp')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-icon" alt="WhatsApp">Contato WhatsApp
-                </button>
-            </div>
-            <div class="loader" id="loader">•••</div>
-        </section>
-    </main>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const dataHoraInput = document.getElementById("data-hora");
-            const errorMessage = document.getElementById("error-message");
-            const confirmarAgendamentoBtn = document.getElementById("confirmar-agendamento");
-            const submitBtn = document.getElementById("submit");
+<pre><code>        &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+        
+        &lt;h2&gt;Fotos dos nossos serviços&lt;/h2&gt;
+        &lt;div class=&quot;media-container&quot;&gt;
+            &lt;img src=&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&amp;s&quot; alt=&quot;Foto de serviço&quot;&gt;
+            &lt;img src=&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&amp;s&quot; alt=&quot;Foto de serviço&quot;&gt;
+            &lt;img src=&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&amp;s&quot; alt=&quot;Foto de serviço&quot;&gt;
+            &lt;img src=&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&amp;s&quot; alt=&quot;Foto de serviço&quot;&gt;
+            &lt;img src=&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&amp;s&quot; alt=&quot;Foto de serviço&quot;&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+        
+        &lt;h2&gt;Vídeos dos nossos serviços&lt;/h2&gt;
+        &lt;div class=&quot;media-container&quot;&gt;
+            &lt;iframe src=&quot;https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+            &lt;iframe src=&quot;https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+        &lt;/div&gt;
+        
+        &lt;p&gt;&lt;strong&gt;Preencha o formulário que iremos entrar em contato com você.&lt;/strong&gt;&lt;/p&gt;
+        &lt;form id=&quot;contact-form&quot; method=&quot;POST&quot; action=&quot;https://formspree.io/f/xblrdvgv&quot;&gt;
+            &lt;div class=&quot;form-container&quot;&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;nome&quot;&gt;Nome:&lt;/label&gt;
+                    &lt;input type=&quot;text&quot; id=&quot;nome&quot; name=&quot;nome&quot; required&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;telefone&quot;&gt;Telefone:&lt;/label&gt;
+                    &lt;input type=&quot;tel&quot; id=&quot;telefone&quot; name=&quot;telefone&quot; required pattern=&quot;\d{2}\d{9}&quot; title=&quot;Por favor, insira um número de telefone celular válido com DDD e 9 dígitos. Exemplo: 11234567890&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;endereco&quot;&gt;Endereço:&lt;/label&gt;
+                    &lt;input type=&quot;text&quot; id=&quot;endereco&quot; name=&quot;endereco&quot; required&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;data-hora&quot;&gt;Data e Hora:&lt;/label&gt;
+                    &lt;input type=&quot;datetime-local&quot; id=&quot;data-hora&quot; name=&quot;data-hora&quot; required&gt;
+                    &lt;p id=&quot;error-message&quot; class=&quot;error-message&quot;&gt;&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;button-container&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;button&quot; id=&quot;confirmar-agendamento&quot;&gt;Agendar&lt;/button&gt;
+                &lt;button class=&quot;button&quot; type=&quot;submit&quot; id=&quot;submit&quot; style=&quot;display:none;&quot;&gt;Enviar&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+        &lt;div class=&quot;button-container&quot;&gt;
+            &lt;button class=&quot;whatsapp-button&quot; onclick=&quot;redirectToService(&39;whatsapp&39;)&quot;&gt;
+                &lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg&quot; class=&quot;whatsapp-icon&quot; alt=&quot;WhatsApp&quot;&gt;Contato WhatsApp
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;loader&quot; id=&quot;loader&quot;&gt;•••&lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+&lt;script&gt;
+    document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
+        const dataHoraInput = document.getElementById(&quot;data-hora&quot;);
+        const errorMessage = document.getElementById(&quot;error-message&quot;);
+        const confirmarAgendamentoBtn = document.getElementById(&quot;confirmar-agendamento&quot;);
+        const submitBtn = document.getElementById(&quot;submit&quot;);
+        const telefoneInput = document.getElementById(&quot;telefone&quot;);
 
-            const hoje = new Date().toISOString().slice(0, 16);
-            dataHoraInput.min = hoje;
+        const hoje = new Date().toISOString().slice(0, 16);
+        dataHoraInput.min = hoje;
 
-            dataHoraInput.addEventListener("input", function () {
-                validateDateTime();
-            });
+        dataHoraInput.addEventListener(&quot;input&quot;, function () {
+            validateDateTime();
+        });
 
-            confirmarAgendamentoBtn.addEventListener("click", function () {
-                if (validateDateTime()) {
-                    submitBtn.style.display = "inline-block";
-                    confirmarAgendamentoBtn.style.display = "none";
-                }
-            });
-
-            function validateDateTime() {
-                const [date, time] = dataHoraInput.value.split("T");
-                const [hour, minutes] = time.split(":");
-                const selectedDateTime = new Date(dataHoraInput.value);
-                const now = new Date();
-
-                if (selectedDateTime < now) {
-                    errorMessage.textContent = "Data anterior não permitida.";
-                    errorMessage.style.display = "block";
-                    dataHoraInput.setCustomValidity("Data anterior não permitida.");
-                    return false;
-                } else if (hour < 8 || hour > 18) {
-                    errorMessage.textContent = "Horário fora do horário comercial (08:00 - 18:00).";
-                    errorMessage.style.display = "block";
-                    dataHoraInput.setCustomValidity("Horário fora do horário comercial.");
-                    return false;
-                } else {
-                    errorMessage.style.display = "none";
-                    dataHoraInput.setCustomValidity("");
-                    return true;
-                }
+        confirmarAgendamentoBtn.addEventListener(&quot;click&quot;, function () {
+            if (validateDateTime() &amp;&amp; validateTelefone()) {
+                submitBtn.style.display = &quot;inline-block&quot;;
+                confirmarAgendamentoBtn.style.display = &quot;none&quot;;
             }
         });
 
-        function redirectToService(service) {
-            const loader = document.getElementById('loader');
-            loader.style.display = 'block';
-            setTimeout(function () {
-                if (service === 'whatsapp') {
-                    window.location.href = 'https://wa.me/5512982576106';
-                }
-            }, 3000);
+        function validateDateTime() {
+            const [date, time] = dataHoraInput.value.split(&quot;T&quot;);
+            const [hour, minutes] = time.split(&quot;:&quot;);
+            const selectedDateTime = new Date(dataHoraInput.value);
+            const now = new Date();
+
+            if (selectedDateTime &lt; now) {
+                errorMessage.textContent = &quot;Data anterior não permitida.&quot;;
+                errorMessage.style.display = &quot;block&quot;;
+                dataHoraInput.setCustomValidity(&quot;Data anterior não permitida.&quot;);
+                return false;
+            } else if (hour &lt; 8 || hour &gt; 18) {
+                errorMessage.textContent = &quot;Horário fora do horário comercial (08:00 - 18:00).&quot;;
+                errorMessage.style.display = &quot;block&quot;;
+                dataHoraInput.setCustomValidity(&quot;Horário fora do horário comercial.&quot;);
+                return false;
+            } else {
+                errorMessage.style.display = &quot;none&quot;;
+                dataHoraInput.setCustomValidity(&quot;&quot;);
+                return true;
+            }
         }
-    </script>
+
+        function validateTelefone() {
+            const pattern = /^\d{2}\d{9}$/;
+            if (!pattern.test(telefoneInput.value)) {
+                telefoneInput.setCustomValidity(&quot;Por favor, insira um número de telefone celular válido com DDD e 9 dígitos. Exemplo: 11234567890&quot;);
+                return false;
+            } else {
+                telefoneInput.setCustomValidity(&quot;&quot;);
+                return true;
+            }
+        }
+    });
+
+    function redirectToService(service) {
+        const loader = document.getElementById(&39;loader&39;);
+        loader.style.display = &39;block&39;;
+        setTimeout(function () {
+            if (service === &39;whatsapp&39;) {
+                window.location.href = &39;https://wa.me/5512982576106&39;;
+            }
+        }, 3000);
+    }
+&lt;/script&gt;
+</code></pre>
 </body>
 
 </html>
