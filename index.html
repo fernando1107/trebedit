@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Paralaxe com Tema Facebook</title>
     <style>
         :root {
-            --primary-color: #4267b2;
-            --secondary-color: #365899;
-            --background-color: #000000;
-            --text-color: #ffffff;
-            --highlight-color: #25D366;
-            --highlight-hover: #1EBE52;
+            --primary-color: 4267b2;
+            --secondary-color: 365899;
+            --background-color: 000000;
+            --text-color: ffffff;
+            --highlight-color: 25D366;
+            --highlight-hover: 1EBE52;
         }
 
         body {
@@ -43,7 +42,7 @@
 
         .parallax {
             background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAtNydeTv_8rGYjJMrcV0oLPYXr3C3nof8FEhOtrQUy62z9fe8cfkiZHY&s=10');
-            height: px;
+            height: 300px;
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
@@ -273,7 +272,7 @@
 
 <body>
     <header class="header">
-        <h1 data-text="GS CALHAS">CLEITON ELETRICISTA</h1>
+        <h1 data-text="GS CALHAS">GS CALHAS</h1>
     </header>
     <main>
         <div class="parallax"></div>
@@ -332,7 +331,7 @@
                 </div>
             </form>
             <div class="button-container">
-                <button class="whatsapp-button" onclick="redirectToService('whatsapp')">
+                <button class="whatsapp-button" onclick="redirectToService()">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-icon" alt="WhatsApp">Contato WhatsApp
                 </button>
             </div>
@@ -412,14 +411,11 @@
                 }
             }
 
-            window.redirectToService = function(service) {
-                if (service === 'whatsapp') {
-                    const phone = telefoneInput.value.replace(/\D/g, '');
-                    window.open(https://wa.me/5512982576106, "_blank");
-                }
+            window.redirectToService = function() {
+                const phone = telefoneInput.value.replace(/\D/g, '');
+                window.open(https://wa.me/${phone}, "_blank");
             }
         });
     </script>
 </body>
-
 </html>
