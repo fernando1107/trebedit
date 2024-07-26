@@ -33,26 +33,14 @@
             font-size: 3em;
             color: var(--text-color);
             font-weight: bold;
-            text-shadow: 2px 2px var(--background-color), 4px 4px var(--secondary-color), 6px 6px aaa;
-            animation: textGlow 1.5s ease-in-out infinite;
-            transform: perspective(500px) rotateX(10deg) rotateY(10deg);
-        }
-
-        @keyframes textGlow {
-            0% {
-                text-shadow: 2px 2px var(--background-color), 4px 4px var(--secondary-color), 6px 6px aaa;
-                transform: perspective(500px) rotateX(10deg) rotateY(10deg);
-            }
-            
-            50% {
-                text-shadow: 2px 2px var(--background-color), 4px 4px var(--secondary-color), 6px 6px aaa, 0 0 20px fff, 0 0 30px fff, 0 0 40px fff, 0 0 50px fff, 0 0 60px fff, 0 0 70px fff;
-                transform: perspective(500px) rotateX(0deg) rotateY(0deg);
-            }
-            
-            100% {
-                text-shadow: 2px 2px var(--background-color), 4px 4px var(--secondary-color), 6px 6px aaa;
-                transform: perspective(500px) rotateX(10deg) rotateY(10deg);
-            }
+            text-shadow: 1px 1px 0px ccc, 1px 2px 0px ccc,
+                         1px 3px 0px ccc, 1px 4px 0px ccc,
+                         1px 5px 0px ccc, 1px 6px 0px ccc,
+                         1px 7px 0px ccc, 1px 8px 7px rgba(0,0,0,0.5),
+                         1px 9px 7px rgba(0,0,0,0.5), 1px 10px 7px rgba(0,0,0,0.5),
+                         1px 11px 7px rgba(0,0,0,0.5), 1px 12px 7px rgba(0,0,0,0.5),
+                         1px 13px 7px rgba(0,0,0,0.5), 1px 14px 7px rgba(0,0,0,0.5),
+                         1px 15px 7px rgba(0,0,0,0.5);
         }
 
         .parallax {
@@ -274,7 +262,7 @@
 
 <body>
     <header class="header">
-        <h1>GS Calheiro</h1>
+        <h1>GS CALHAS</h1>
     </header>
     <main>
         <div class="parallax"></div>
