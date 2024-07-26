@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>site de serviços @Chacal1107</title>
+    <title>Paralaxe com Tema Facebook</title>
     <style>
         :root {
             --primary-color: #4267b2;
             --secondary-color: #365899;
-            --background-color: #000000;
-            --text-color: #ffffff;
+            --background-color: #ffffff;
+            --text-color: #000000;
             --highlight-color: #25D366;
             --highlight-hover: #1EBE52;
             --card-bg-color: #ffffff;
@@ -18,19 +18,22 @@
             --spacing: 20px;
             --radius: 8px;
             --font-family: 'Helvetica Neue', Arial, sans-serif;
-            --header-color: #ff0000; /* Cor vermelha */
+            --header-color: #ff0000; /_ Cor vermelha _/
         }
 
         body {
             margin: 0;
             font-family: var(--font-family);
-            background-color: var(--background-color);
             color: var(--text-color);
             overflow-x: hidden;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeFJ-WdmpZRLddLY-arbr51EbYc_XoP8oywQ&usqp=CAU');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         .header {
-            background-color: var(--background-color);
             padding: var(--spacing);
             text-align: center;
         }
@@ -62,21 +65,14 @@
             }
         }
 
-        .parallax {
-            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAtNydeTv_8rGYjJMrcV0oLPYXr3C3nof8FEhOtrQUy62z9fe8cfkiZHY&s=10');
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
         .profile-picture {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             border: 5px solid var(--text-color);
             display: block;
-            margin: -75px auto 0 auto;
+            margin: 20px auto;
+            z-index: 10; /_ Traz a imagem para frente _/
         }
 
         .content {
@@ -246,7 +242,7 @@
         .media-container img, .media-container iframe {
             width: 100%;
             height: auto;
-            border-radius: var(--radius);
+            border-radius: var (--radius);
             box-shadow: 0 2px 4px var(--shadow-color);
         }
 
@@ -277,9 +273,8 @@
     <header class="header">
         <h1>GS CALHAS</h1>
     </header>
-    <div class="parallax"></div>
+    <img class="profile-picture" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s" alt="Foto de Perfil">
     <main>
-        <img class="profile-picture" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s" alt="Foto de Perfil">
         <section class="content">
             <h1>Sobre Nós</h1>
             <p>Bem-vindo ao nosso site! Somos uma empresa especializada em serviços de calhas e telhados. Oferecemos a melhor qualidade e atendimento para nossos clientes.</p>
