@@ -38,23 +38,17 @@
             font-weight: bold;
             letter-spacing: 0.1em;
             font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .header h1::before {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            color: transparent;
-            -webkit-text-stroke: 2px 000; /_ Adjust thickness to match the effect _/
-            text-shadow: 2px 2px 0 fff, 2px -2px 0 fff, -2px 2px 0 fff, -2px -2px 0 fff, /_ Outlines _/
-                        4px 4px 0px rgba(0,0,0,0.1); /_ Depth shadow _/
+            text-shadow:  1px 1px 0 #000,
+                          2px 2px 0 #000,
+                          3px 3px 0 #000,
+                          4px 4px 0 #000,
+                          5px 5px 0 #000,
+                          6px 6px 0 #000;
         }
 
         .parallax {
             background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAtNydeTv_8rGYjJMrcV0oLPYXr3C3nof8FEhOtrQUy62z9fe8cfkiZHY&s=10');
-            height: 0px;
+            height: 300px;
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
@@ -116,7 +110,7 @@
             width: 100%;
             padding: 10px;
             margin-top: 5px;
-            border: 1px solid ccc;
+            border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
             transition: border-color 0.3s;
@@ -186,6 +180,7 @@
             0% {
                 transform: rotate(0deg);
             }
+
             100% {
                 transform: rotate(360deg);
             }
