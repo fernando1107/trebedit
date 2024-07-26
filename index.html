@@ -7,12 +7,12 @@
     <title>Paralaxe com Tema Facebook</title>
     <style>
         :root {
-            --primary-color: #4267b2;
-            --secondary-color: #365899;
-            --background-color: #000000;
-            --text-color: #ffffff;
-            --highlight-color: #25D366;
-            --highlight-hover: #1EBE52;
+            --primary-color: 4267b2;
+            --secondary-color: 365899;
+            --background-color: 000000;
+            --text-color: ffffff;
+            --highlight-color: 25D366;
+            --highlight-hover: 1EBE52;
         }
 
         body {
@@ -80,7 +80,7 @@
         }
 
         .content p {
-            color: #666666;
+            color: 666666;
             font-size: 1.1em;
             line-height: 1.8;
         }
@@ -307,7 +307,7 @@
             </div>
             
             <p><strong>Preencha o formulário que iremos entrar em contato com você.</strong></p>
-            <form id="contact-form" method="POST" action="https://formspree.io/f/xblrdvgv" onsubmit="return handleFormSubmit(event)">
+            <form id="contact-form" method="POST" action="https://formspree.io/f/xblrdvgv">
                 <div class="form-container">
                     <div class="form-group">
                         <label for="nome">Nome:</label>
@@ -384,30 +384,6 @@
                 }
             }
         });
-
-        function handleFormSubmit(event) {
-            event.preventDefault();
-
-            const form = event.target;
-            const formData = new FormData(form);
-
-            const nome = formData.get('nome');
-            const telefone = formData.get('telefone');
-            const endereco = formData.get('endereco');
-            const dataHora = formData.get('data-hora');
-
-            // Envia a mensagem via WhatsApp
-            const whatsappNumber = '5512982576106'; // Substitua pelo número do WhatsApp desejado
-            const whatsappMessage = Nome: ${nome}%0A +
-                                    Telefone: ${telefone}%0A +
-                                    Endereço: ${endereco}%0A +
-                                    Data e Hora: ${dataHora};
-            const whatsappUrl = https://wa.me/${whatsappNumber}?text=${whatsappMessage};
-            window.open(whatsappUrl, '_blank');
-
-            // Prosseguir com o envio do formulário
-            event.target.submit();
-        }
 
         function redirectToService(service) {
             const loader = document.getElementById('loader');
