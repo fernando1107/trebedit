@@ -38,12 +38,7 @@
             font-weight: bold;
             letter-spacing: 0.1em;
             font-family: Arial, Helvetica, sans-serif;
-            text-shadow: 1px 1px 0 000,
-                          2px 2px 0 000,
-                          3px 3px 0 000,
-                          4px 4px 0 000,
-                          5px 5px 0 000,
-                          6px 6px 0 000;
+            text-shadow: 1px 1px 0 000, 2px 2px 0 000, 3px 3px 0 000, 4px 4px 0 000, 5px 5px 0 000, 6px 6px 0 000;
         }
 
         .parallax {
@@ -331,17 +326,36 @@
             <div class="loader" id="loader">•••</div>
         </section>
     </main>
-    <script>
+    <javascript>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dataHoraInput = document.getElementById("data-hora");
+
+            const hoje = new Date().toISOString().slice(0, 16);
+            dataHoraInput.min = hoje;
+
+            dataHoraInput.addEventListener("input", function () {
+                const [date, time] = this.value.split("T");
+                const [hour, minutes] = time.split(":");
+
+                if (hour < 8) {
+                    this.value = ${date}T08:${minutes};
+                }
+                if (hour > 18) {
+                    this.value = ${date}T18:${minutes};
+                }
+            });
+        });
+
         function redirectToService(service) {
             const loader = document.getElementById('loader');
             loader.style.display = 'block';
-            setTimeout(function() {
+            setTimeout(function () {
                 if (service === 'whatsapp') {
                     window.location.href = 'https://wa.me/5512982576106';
                 }
             }, 3000);
         }
-    </script>
+    </javascript>
 </body>
 
 </html>
