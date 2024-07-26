@@ -6,12 +6,12 @@
     <title>Paralaxe com Tema Facebook</title>
     <style>
         :root {
-            --primary-color: 4267b2;
-            --secondary-color: 365899;
-            --background-color: 000000;
-            --text-color: ffffff;
-            --highlight-color: 25D366;
-            --highlight-hover: 1EBE52;
+            --primary-color: #4267b2;
+            --secondary-color: #365899;
+            --background-color: #000000;
+            --text-color: #ffffff;
+            --highlight-color: #25D366;
+            --highlight-hover: #1EBE52;
         }
 
         body {
@@ -42,7 +42,7 @@
 
         .parallax {
             background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAtNydeTv_8rGYjJMrcV0oLPYXr3C3nof8FEhOtrQUy62z9fe8cfkiZHY&s=10');
-            height: 300px;
+            height: 0px;
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
@@ -416,6 +416,16 @@
                 window.open(https://wa.me/${phone}, "_blank");
             }
         });
+        
+
+        function redirectWithLoading() {
+            const loader = document.getElementById('loader');
+            loader.style.display = 'block';
+            setTimeout(() => {
+                window.location.href = 'https://t.me/Chacal1107'; // Substitua pelo URL desejado
+            }, 3000); // Simula um loading de 3 segundos
+        }
     </script>
 </body>
 </html>
+    
