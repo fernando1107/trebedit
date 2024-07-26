@@ -43,7 +43,7 @@
 
         .parallax {
             background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAtNydeTv_8rGYjJMrcV0oLPYXr3C3nof8FEhOtrQUy62z9fe8cfkiZHY&s=10');
-            height: -10px;
+            height: 0px;
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
@@ -114,6 +114,13 @@
         .form-group input:focus {
             border-color: var(--primary-color);
             outline: none;
+        }
+
+        .error-message {
+            color: red;
+            display: none;
+            margin-top: -10px;
+            margin-bottom: 10px;
         }
 
         .button-container {
@@ -272,7 +279,7 @@
         <div class="parallax"></div>
         <section class="content">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWJ9lsI0evYnmfNH8D5kfmzkFEyk0YEGZstSp97JDJeKcOehz_50gntZ4&s=10" class="profile-picture" alt="Foto de perfil">
-            <h1>Sobre nossos serviços. <span class="bounce">👇</span></h1>
+            <h1>Sobre nosso serviço <span class="bounce">👇</span></h1>
             <p>Instalação de calhas<br>Manutenção de calhas<br>Instalação de Rufos<br>Drenagem<br><span class="highlight">Exemplos em vídeos e Fotos.</span></p>
             
             <div class="divider"></div>
@@ -310,8 +317,9 @@
                         <input type="text" id="endereco" name="endereco" required>
                     </div>
                     <div class="form-group">
-                        <label for="data-hora">Data e Hora que deseja ser atendido:</label>
+                        <label for="data-hora">Data e Hora:</label>
                         <input type="datetime-local" id="data-hora" name="data-hora" required>
+                        <p id="error-message" class="error-message"></p>
                     </div>
                 </div>
                 <div class="button-container">
@@ -329,6 +337,8 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const dataHoraInput = document.getElementById("data-hora");
+            const errorMessage = document.getElementById("error-message");
+            const form = document.getElementById("contact-form");
 
             const hoje = new Date().toISOString().slice(0, 16);
             dataHoraInput.min = hoje;
@@ -337,11 +347,24 @@
                 const [date, time] = this.value.split("T");
                 const [hour, minutes] = time.split(":");
 
-                if (hour < 8) {
-                    this.value = ${date}T08:${minutes};
+                if (new Date(this.value) < new Date()) {
+                    errorMessage.textContent = "Data anterior não permitida.";
+                    errorMessage.style.display = "block";
+                    this.setCustomValidity("Data anterior não permitida.");
+                } else if (hour < 8 || hour > 18) {
+                    errorMessage.textContent = "Horário fora do horário comercial (08:00 - 18:00).";
+                    errorMessage.style.display = "block";
+                    this.setCustomValidity("Horário fora do horário comercial.");
+                } else {
+                    errorMessage.style.display = "none";
+                    this.setCustomValidity("");
                 }
-                if (hour > 18) {
-                    this.value = ${date}T18:${minutes};
+            });
+
+            form.addEventListener("submit", function (event) {
+                if (!dataHoraInput.checkValidity()) {
+                    event.preventDefault();
+                    errorMessage.style.display = "block";
                 }
             });
         });
