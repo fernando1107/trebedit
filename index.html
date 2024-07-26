@@ -7,12 +7,12 @@
     <title>Paralaxe com Tema Facebook</title>
     <style>
         :root {
-            --primary-color: #4267b2;
-            --secondary-color: #365899;
-            --background-color: #000000;
-            --text-color: #ffffff;
-            --highlight-color: #25D366;
-            --highlight-hover: #1EBE52;
+            --primary-color: 4267b2;
+            --secondary-color: 365899;
+            --background-color: 000000;
+            --text-color: ffffff;
+            --highlight-color: 25D366;
+            --highlight-hover: 1EBE52;
         }
 
         body {
@@ -38,12 +38,12 @@
             font-weight: bold;
             letter-spacing: 0.1em;
             font-family: Arial, Helvetica, sans-serif;
-            text-shadow:  1px 1px 0 #000,
-                          2px 2px 0 #000,
-                          3px 3px 0 #000,
-                          4px 4px 0 #000,
-                          5px 5px 0 #000,
-                          6px 6px 0 #000;
+            text-shadow: 1px 1px 0 000,
+                          2px 2px 0 000,
+                          3px 3px 0 000,
+                          4px 4px 0 000,
+                          5px 5px 0 000,
+                          6px 6px 0 000;
         }
 
         .parallax {
@@ -80,7 +80,7 @@
         }
 
         .content p {
-            color: #666666;
+            color: 666666;
             font-size: 1.1em;
             line-height: 1.8;
         }
@@ -110,7 +110,7 @@
             width: 100%;
             padding: 10px;
             margin-top: 5px;
-            border: 1px solid #ccc;
+            border: 1px solid ccc;
             border-radius: 4px;
             box-sizing: border-box;
             transition: border-color 0.3s;
@@ -313,6 +313,10 @@
                     <div class="form-group">
                         <label for="endereco">Endereço:</label>
                         <input type="text" id="endereco" name="endereco" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="data-hora">Data e Hora:</label>
+                        <input type="datetime-local" id="data-hora" name="data-hora" required>
                     </div>
                 </div>
                 <div class="button-container">
