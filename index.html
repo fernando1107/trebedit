@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -29,22 +30,30 @@
         }
 
         .header h1 {
-            font-size: 4em;
-            color: #ffffff;
+            font-size: 3em;
+            color: #fff;
             position: relative;
             text-transform: uppercase;
             text-align: center;
+            font-weight: bold;
         }
 
-        .header h1:before {
-            content: 'GS CALHAS';
+        .header h1::before {
+            content: attr(data-text);
             position: absolute;
-            top: 10px; /_ Ajuste para a sombra 3D _/
-            left: 10px; /_ Ajuste para a sombra 3D _/
-            color: #ff0000; /_ Base vermelha _/
+            top: 0.1em;
+            left: 0.1em;
             z-index: -1;
-            text-shadow: 5px 5px 0 #b30000, /_ Ajustar tamanho e cor da sombra conforme necessário _/
-                         10px 10px 0 #660000; /_ Sombra adicional para profundidade _/
+            color: #ff0000;  /_ Base vermelha _/
+            text-shadow: -0.05em -0.05em rgba(0,0,0,0.6), 
+                         -0.1em -0.1em rgba(0,0,0,0.6), 
+                         -0.15em -0.15em rgba(0,0,0,0.6), 
+                         -0.2em -0.2em rgba(0,0,0,0.6),
+                         -0.25em -0.25em rgba(0,0,0,0.6),
+                         -0.3em -0.3em rgba(0,0,0,0.6),
+                         -0.35em -0.35em rgba(0,0,0,0.6),
+                         -0.4em -0.4em rgba(0,0,0,0.6),
+                         -0.45em -0.45em rgba(0,0,0,0.6);
         }
 
         .parallax {
@@ -88,7 +97,7 @@
 
         .content .highlight {
             font-weight: bold;
-            font-size: 2em;
+            fontSize: 2em;
         }
 
         .form-container {
@@ -265,7 +274,7 @@
 
 <body>
     <header class="header">
-        <h1>GS CALHAS</h1>
+        <h1 data-text="GS CALHAS">GS CALHAS</h1>
     </header>
     <main>
         <div class="parallax"></div>
@@ -280,7 +289,7 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
                 <iframe src="https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ" frameborder="0" allowfullscreen></iframe>
-                <iframe src="https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ" frameborder="0"  allowfullscreen></iframe>
             </div>
             <p><strong>Preencha o formulário que iremos entrar em contato com você.</strong></p>
             <form id="contact-form" method="POST" action="https://formspree.io/f/xblrdvgv">
@@ -322,4 +331,5 @@
         }
     </script>
 </body>
+
 </html>
