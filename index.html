@@ -18,6 +18,7 @@
             --spacing: 20px;
             --radius: 8px;
             --font-family: 'Helvetica Neue', Arial, sans-serif;
+            --header-color: #ff0000; /* Cor vermelha */
         }
 
         body {
@@ -36,13 +37,29 @@
 
         .header h1 {
             font-size: 4em;
-            color: var(--text-color);
+            color: var(--header-color);
             position: relative;
             text-transform: uppercase;
             text-align: center;
             font-weight: bold;
             letter-spacing: 0.1em;
             text-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000, 4px 4px 0 #000, 5px 5px 0 #000, 6px 6px 0 #000;
+            animation: move3D 3s infinite alternate;
+        }
+
+        @keyframes move3D {
+            0% {
+                transform: perspective(500px) rotateX(0deg) rotateY(0deg);
+                text-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000, 4px 4px 0 #000, 5px 5px 0 #000, 6px 6px 0 #000;
+            }
+            50% {
+                transform: perspective(500px) rotateX(10deg) rotateY(10deg);
+                text-shadow: 2px 2px 0 #000, 3px 3px 0 #000, 4px 4px 0 #000, 5px 5px 0 #000, 6px 6px 0 #000, 7px 7px 0 #000;
+            }
+            100% {
+                transform: perspective(500px) rotateX(-10deg) rotateY(-10deg);
+                text-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000, 4px 4px 0 #000, 5px 5px 0 #000, 6px 6px 0 #000;
+            }
         }
 
         .parallax {
@@ -251,10 +268,6 @@
             transition: background-color 0.3s;
         }
 
-        .confirm-button:hover {
-            background-color: var(--highlight-hover);
-        }
-
         .confirm-button:disabled {
             background-color: #ccc;
             cursor: not-allowed;
@@ -263,14 +276,14 @@
 </head>
 <body>
     <header class="header">
-        <h1 data-text="GS CALHAS">GS CALHAS</h1>
+        <h1>GS CALHAS</h1>
     </header>
+    <div class="parallax"></div>
     <main>
-        <div class="parallax"></div>
+        <img class="profile-picture" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s" alt="Foto de Perfil">
         <section class="content">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWJ9lsI0evYnmfNH8D5kfmzkFEyk0YEGZstSp97JDJeKcOehz_50gntZ4&s=10" class="profile-picture" alt="Foto de perfil">
-            <h1>Sobre nosso serviço <span class="bounce">👇</span></h1>
-            <p>Instalação de calhas<br>Manutenção de calhas<br>Instalação de Rufos<br>Drenagem<br><span class="highlight">Exemplos em vídeos e Fotos.</span></p>
+            <h1>Sobre Nós</h1>
+            <p>Bem-vindo ao nosso site! Somos uma empresa especializada em serviços de calhas e telhados. Oferecemos a melhor qualidade e atendimento para nossos clientes.</p>
 
             <div class="divider"></div>
 
