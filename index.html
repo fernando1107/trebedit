@@ -7,12 +7,12 @@
     <title>Paralaxe com Tema Facebook</title>
     <style>
         :root {
-            --primary-color: #4267b2;
-            --secondary-color: #365899;
-            --background-color: #000000;
-            --text-color: #ffffff;
-            --highlight-color: #25D366;
-            --highlight-hover: #1EBE52;
+            --primary-color: 4267b2;
+            --secondary-color: 365899;
+            --background-color: 000000;
+            --text-color: ffffff;
+            --highlight-color: 25D366;
+            --highlight-hover: 1EBE52;
         }
 
         body {
@@ -47,8 +47,8 @@
             left: 0;
             z-index: -1;
             color: transparent;
-            -webkit-text-stroke: 2px #000; /_ Adjust thickness to match the effect _/
-            text-shadow: 2px 2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, -2px -2px 0 #fff, /_ Outlines _/
+            -webkit-text-stroke: 2px 000; /_ Adjust thickness to match the effect _/
+            text-shadow: 2px 2px 0 fff, 2px -2px 0 fff, -2px 2px 0 fff, -2px -2px 0 fff, /_ Outlines _/
                         4px 4px 0px rgba(0,0,0,0.1); /_ Depth shadow _/
         }
 
@@ -86,7 +86,7 @@
         }
 
         .content p {
-            color: #666666;
+            color: 666666;
             font-size: 1.1em;
             line-height: 1.8;
         }
@@ -116,7 +116,7 @@
             width: 100%;
             padding: 10px;
             margin-top: 5px;
-            border: 1px solid #ccc;
+            border: 1px solid ccc;
             border-radius: 4px;
             box-sizing: border-box;
             transition: border-color 0.3s;
@@ -265,6 +265,12 @@
             display: inline-block;
             animation: bounce 2s infinite;
         }
+
+        .divider {
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 40px 0;
+        }
     </style>
 </head>
 
@@ -278,15 +284,26 @@
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWJ9lsI0evYnmfNH8D5kfmzkFEyk0YEGZstSp97JDJeKcOehz_50gntZ4&s=10" class="profile-picture" alt="Foto de perfil">
             <h1>Sobre nosso serviço <span class="bounce">👇</span></h1>
             <p>Instalação de calhas<br>Manutenção de calhas<br>Instalação de Rufos<br>Drenagem<br><span class="highlight">Exemplos em vídeos e Fotos.</span></p>
+            
+            <div class="divider"></div>
+            
+            <h2>Fotos dos nossos serviços</h2>
             <div class="media-container">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s" alt="Foto de serviço">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s" alt="Foto de serviço">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s" alt="Foto de serviço">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s" alt="Foto de serviço">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtqtaML4yBNZUZ-PMHaEOETii6_0TD6bzFQ&s" alt="Foto de serviço">
+            </div>
+            
+            <div class="divider"></div>
+            
+            <h2>Vídeos dos nossos serviços</h2>
+            <div class="media-container">
                 <iframe src="https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ" frameborder="0" allowfullscreen></iframe>
                 <iframe src="https://www.youtube.com/embed/AnNEHjGvDlk?si=GNOOj7MYqmeeeEUJ" frameborder="0" allowfullscreen></iframe>
             </div>
+            
             <p><strong>Preencha o formulário que iremos entrar em contato com você.</strong></p>
             <form id="contact-form" method="POST" action="https://formspree.io/f/xblrdvgv">
                 <div class="form-container">
